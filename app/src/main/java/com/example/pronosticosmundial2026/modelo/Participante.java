@@ -12,6 +12,9 @@ public class Participante extends Usuario implements Comparable<Participante> {
     public int getPuntajeAcumulado() { return puntajeAcumulado; }
     public void setPuntajeAcumulado(int puntajeAcumulado) { this.puntajeAcumulado = puntajeAcumulado; }
 
+    @Override
+    public String getTipoUsuario() { return "PARTICIPANTE"; }
+
     // Ordena de MAYOR a MENOR puntaje; si empatan, alfabético por nombre de usuario
     @Override
     public int compareTo(Participante otro) {

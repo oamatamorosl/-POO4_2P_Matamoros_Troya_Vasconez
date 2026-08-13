@@ -19,4 +19,6 @@ public abstract class Usuario implements Serializable {
     public String getNombreUsuario() { return nombreUsuario; }
     public String getContrasena() { return contrasena; }
     public String getNombreCompleto() { return nombreCompleto; }
+
+    public abstract String getTipoUsuario();
 }
