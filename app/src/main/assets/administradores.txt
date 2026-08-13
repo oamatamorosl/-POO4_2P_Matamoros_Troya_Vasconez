@@ -1,0 +1,3 @@
+idUsuario;cargo
+9001;Administrador General
+9002;Supervisor

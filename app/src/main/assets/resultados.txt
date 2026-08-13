@@ -1,0 +1,1 @@
+idResultado;idPartido;golesSeleccion1;golesSeleccion2

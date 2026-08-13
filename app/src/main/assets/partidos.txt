@@ -1,0 +1,105 @@
+idPartido;fase;fecha;horaUTC;estadio;seleccion1;seleccion2;estado
+1;FASE_DE_GRUPOS;2026-06-11;19:00;Mexico City Stadium (Estadio Azteca);México;Sudáfrica;ABIERTO
+2;FASE_DE_GRUPOS;2026-06-11;23:00;Guadalajara Stadium (Estadio Akron);Corea del Sur;Chequia;ABIERTO
+3;FASE_DE_GRUPOS;2026-06-12;19:00;Toronto Stadium (BMO Field);Canadá;Bosnia y Herzegovina;ABIERTO
+4;FASE_DE_GRUPOS;2026-06-12;23:00;Los Angeles Stadium (SoFi Stadium);Estados Unidos;Paraguay;ABIERTO
+5;FASE_DE_GRUPOS;2026-06-13;15:00;San Francisco Bay Area Stadium (Levi's Stadium);Catar;Suiza;ABIERTO
+6;FASE_DE_GRUPOS;2026-06-13;18:00;New York New Jersey Stadium (MetLife Stadium);Brasil;Marruecos;ABIERTO
+7;FASE_DE_GRUPOS;2026-06-13;21:00;Boston Stadium (Gillette Stadium);Haití;Escocia;ABIERTO
+8;FASE_DE_GRUPOS;2026-06-13;23:59;Vancouver Stadium (BC Place);Australia;Turquía;ABIERTO
+9;FASE_DE_GRUPOS;2026-06-14;15:00;Philadelphia Stadium (Lincoln Financial Field);Alemania;Curazao;ABIERTO
+10;FASE_DE_GRUPOS;2026-06-14;18:00;Houston Stadium (NRG Stadium);Países Bajos;Japón;ABIERTO
+11;FASE_DE_GRUPOS;2026-06-14;21:00;Dallas Stadium (AT&T Stadium);Costa de Marfil;Ecuador;ABIERTO
+12;FASE_DE_GRUPOS;2026-06-14;23:59;Monterrey Stadium (Estadio BBVA);Suecia;Túnez;ABIERTO
+13;FASE_DE_GRUPOS;2026-06-15;15:00;Atlanta Stadium (Mercedes-Benz Stadium);España;Cabo Verde;ABIERTO
+14;FASE_DE_GRUPOS;2026-06-15;18:00;Seattle Stadium (Lumen Field);Bélgica;Egipto;ABIERTO
+15;FASE_DE_GRUPOS;2026-06-15;21:00;Miami Stadium (Hard Rock Stadium);Arabia Saudita;Uruguay;ABIERTO
+16;FASE_DE_GRUPOS;2026-06-15;23:59;Los Angeles Stadium (SoFi Stadium);Irán;Nueva Zelanda;ABIERTO
+17;FASE_DE_GRUPOS;2026-06-16;15:00;New York New Jersey Stadium (MetLife Stadium);Francia;Senegal;ABIERTO
+18;FASE_DE_GRUPOS;2026-06-16;18:00;Boston Stadium (Gillette Stadium);Irak;Noruega;ABIERTO
+19;FASE_DE_GRUPOS;2026-06-16;21:00;Kansas City Stadium (Arrowhead Stadium);Argentina;Argelia;ABIERTO
+20;FASE_DE_GRUPOS;2026-06-16;23:59;San Francisco Bay Area Stadium (Levi's Stadium);Austria;Jordania;ABIERTO
+21;FASE_DE_GRUPOS;2026-06-17;15:00;Houston Stadium (NRG Stadium);Portugal;República Democrática del Congo;ABIERTO
+22;FASE_DE_GRUPOS;2026-06-17;18:00;Dallas Stadium (AT&T Stadium);Inglaterra;Croacia;ABIERTO
+23;FASE_DE_GRUPOS;2026-06-17;21:00;Toronto Stadium (BMO Field);Ghana;Panamá;ABIERTO
+24;FASE_DE_GRUPOS;2026-06-17;23:59;Mexico City Stadium (Estadio Azteca);Uzbekistán;Colombia;ABIERTO
+25;FASE_DE_GRUPOS;2026-06-18;15:00;Guadalajara Stadium (Estadio Akron);México;Corea del Sur;ABIERTO
+26;FASE_DE_GRUPOS;2026-06-18;18:00;Los Angeles Stadium (SoFi Stadium);Chequia;Sudáfrica;ABIERTO
+27;FASE_DE_GRUPOS;2026-06-18;21:00;Vancouver Stadium (BC Place);Canadá;Catar;ABIERTO
+28;FASE_DE_GRUPOS;2026-06-18;23:59;Seattle Stadium (Lumen Field);Suiza;Bosnia y Herzegovina;ABIERTO
+29;FASE_DE_GRUPOS;2026-06-19;15:00;Philadelphia Stadium (Lincoln Financial Field);Brasil;Haití;ABIERTO
+30;FASE_DE_GRUPOS;2026-06-19;18:00;Boston Stadium (Gillette Stadium);Escocia;Marruecos;ABIERTO
+31;FASE_DE_GRUPOS;2026-06-19;21:00;Seattle Stadium (Lumen Field);Estados Unidos;Australia;ABIERTO
+32;FASE_DE_GRUPOS;2026-06-19;23:59;San Francisco Bay Area Stadium (Levi's Stadium);Turquía;Paraguay;ABIERTO
+33;FASE_DE_GRUPOS;2026-06-20;15:00;Atlanta Stadium (Mercedes-Benz Stadium);Alemania;Costa de Marfil;ABIERTO
+34;FASE_DE_GRUPOS;2026-06-20;18:00;Houston Stadium (NRG Stadium);Ecuador;Curazao;ABIERTO
+35;FASE_DE_GRUPOS;2026-06-20;21:00;Dallas Stadium (AT&T Stadium);Países Bajos;Suecia;ABIERTO
+36;FASE_DE_GRUPOS;2026-06-20;23:59;Kansas City Stadium (Arrowhead Stadium);Túnez;Japón;ABIERTO
+37;FASE_DE_GRUPOS;2026-06-21;15:00;Seattle Stadium (Lumen Field);Bélgica;Irán;ABIERTO
+38;FASE_DE_GRUPOS;2026-06-21;18:00;Vancouver Stadium (BC Place);Nueva Zelanda;Egipto;ABIERTO
+39;FASE_DE_GRUPOS;2026-06-21;21:00;Miami Stadium (Hard Rock Stadium);España;Arabia Saudita;ABIERTO
+40;FASE_DE_GRUPOS;2026-06-21;23:59;Monterrey Stadium (Estadio BBVA);Uruguay;Cabo Verde;ABIERTO
+41;FASE_DE_GRUPOS;2026-06-22;15:00;New York New Jersey Stadium (MetLife Stadium);Francia;Irak;ABIERTO
+42;FASE_DE_GRUPOS;2026-06-22;18:00;Boston Stadium (Gillette Stadium);Noruega;Senegal;ABIERTO
+43;FASE_DE_GRUPOS;2026-06-22;21:00;Los Angeles Stadium (SoFi Stadium);Argentina;Austria;ABIERTO
+44;FASE_DE_GRUPOS;2026-06-22;23:59;San Francisco Bay Area Stadium (Levi's Stadium);Jordania;Argelia;ABIERTO
+45;FASE_DE_GRUPOS;2026-06-23;15:00;Houston Stadium (NRG Stadium);Portugal;Uzbekistán;ABIERTO
+46;FASE_DE_GRUPOS;2026-06-23;18:00;Guadalajara Stadium (Estadio Akron);Colombia;República Democrática del Congo;ABIERTO
+47;FASE_DE_GRUPOS;2026-06-23;21:00;Dallas Stadium (AT&T Stadium);Inglaterra;Ghana;ABIERTO
+48;FASE_DE_GRUPOS;2026-06-23;23:59;Atlanta Stadium (Mercedes-Benz Stadium);Panamá;Croacia;ABIERTO
+49;FASE_DE_GRUPOS;2026-06-24;18:00;Mexico City Stadium (Estadio Azteca);Chequia;México;ABIERTO
+50;FASE_DE_GRUPOS;2026-06-24;18:00;Monterrey Stadium (Estadio BBVA);Sudáfrica;Corea del Sur;ABIERTO
+51;FASE_DE_GRUPOS;2026-06-24;22:00;Vancouver Stadium (BC Place);Suiza;Canadá;ABIERTO
+52;FASE_DE_GRUPOS;2026-06-24;22:00;Toronto Stadium (BMO Field);Bosnia y Herzegovina;Catar;ABIERTO
+53;FASE_DE_GRUPOS;2026-06-25;18:00;Miami Stadium (Hard Rock Stadium);Escocia;Brasil;ABIERTO
+54;FASE_DE_GRUPOS;2026-06-25;18:00;Atlanta Stadium (Mercedes-Benz Stadium);Marruecos;Haití;ABIERTO
+55;FASE_DE_GRUPOS;2026-06-25;22:00;Los Angeles Stadium (SoFi Stadium);Turquía;Estados Unidos;ABIERTO
+56;FASE_DE_GRUPOS;2026-06-25;22:00;Seattle Stadium (Lumen Field);Paraguay;Australia;ABIERTO
+57;FASE_DE_GRUPOS;2026-06-26;18:00;Houston Stadium (NRG Stadium);Ecuador;Alemania;ABIERTO
+58;FASE_DE_GRUPOS;2026-06-26;18:00;Philadelphia Stadium (Lincoln Financial Field);Curazao;Costa de Marfil;ABIERTO
+59;FASE_DE_GRUPOS;2026-06-26;22:00;Kansas City Stadium (Arrowhead Stadium);Túnez;Países Bajos;ABIERTO
+60;FASE_DE_GRUPOS;2026-06-26;22:00;San Francisco Bay Area Stadium (Levi's Stadium);Japón;Suecia;ABIERTO
+61;FASE_DE_GRUPOS;2026-06-27;18:00;Vancouver Stadium (BC Place);Nueva Zelanda;Bélgica;ABIERTO
+62;FASE_DE_GRUPOS;2026-06-27;18:00;Seattle Stadium (Lumen Field);Egipto;Irán;ABIERTO
+63;FASE_DE_GRUPOS;2026-06-27;22:00;Miami Stadium (Hard Rock Stadium);Uruguay;España;ABIERTO
+64;FASE_DE_GRUPOS;2026-06-27;22:00;Atlanta Stadium (Mercedes-Benz Stadium);Cabo Verde;Arabia Saudita;ABIERTO
+65;FASE_DE_GRUPOS;2026-06-26;18:00;Boston Stadium (Gillette Stadium);Noruega;Francia;ABIERTO
+66;FASE_DE_GRUPOS;2026-06-26;18:00;Toronto Stadium (BMO Field);Senegal;Irak;ABIERTO
+67;FASE_DE_GRUPOS;2026-06-27;22:00;Dallas Stadium (AT&T Stadium);Jordania;Argentina;ABIERTO
+68;FASE_DE_GRUPOS;2026-06-27;22:00;Kansas City Stadium (Arrowhead Stadium);Argelia;Austria;ABIERTO
+69;FASE_DE_GRUPOS;2026-06-28;18:00;Houston Stadium (NRG Stadium);Colombia;Portugal;ABIERTO
+70;FASE_DE_GRUPOS;2026-06-28;18:00;Guadalajara Stadium (Estadio Akron);República Democrática del Congo;Uzbekistán;ABIERTO
+71;FASE_DE_GRUPOS;2026-06-28;22:00;Atlanta Stadium (Mercedes-Benz Stadium);Panamá;Inglaterra;ABIERTO
+72;FASE_DE_GRUPOS;2026-06-28;22:00;Philadelphia Stadium (Lincoln Financial Field);Croacia;Ghana;ABIERTO
+73;DIECISEISAVOS_DE_FINAL;2026-06-29;12:00;Los Angeles Stadium (SoFi Stadium);Sudáfrica;Canadá;ABIERTO
+74;DIECISEISAVOS_DE_FINAL;2026-06-29;23:00;Houston Stadium (NRG Stadium);Brasil;Japón;ABIERTO
+75;DIECISEISAVOS_DE_FINAL;2026-06-30;02:30;Boston Stadium (Gillette Stadium);Alemania;Paraguay;ABIERTO
+76;DIECISEISAVOS_DE_FINAL;2026-06-30;07:00;Monterrey Stadium (Estadio BBVA);Países Bajos;Marruecos;ABIERTO
+77;DIECISEISAVOS_DE_FINAL;2026-06-30;23:00;Dallas Stadium (AT&T Stadium);Costa de Marfil;Noruega;ABIERTO
+78;DIECISEISAVOS_DE_FINAL;2026-07-01;03:00;New York New Jersey Stadium (MetLife Stadium);Francia;Suecia;ABIERTO
+79;DIECISEISAVOS_DE_FINAL;2026-07-01;07:00;Mexico City Stadium (Estadio Azteca);México;Ecuador;ABIERTO
+80;DIECISEISAVOS_DE_FINAL;2026-07-01;22:00;Atlanta Stadium (Mercedes-Benz Stadium);Inglaterra;República Democrática del Congo;ABIERTO
+81;DIECISEISAVOS_DE_FINAL;2026-07-02;02:00;Seattle Stadium (Lumen Field);Bélgica;Senegal;ABIERTO
+82;DIECISEISAVOS_DE_FINAL;2026-07-02;06:00;San Francisco Bay Area Stadium (Levi's Stadium);Estados Unidos;Bosnia y Herzegovina;ABIERTO
+83;DIECISEISAVOS_DE_FINAL;2026-07-03;01:00;Los Angeles Stadium (SoFi Stadium);España;Austria;ABIERTO
+84;DIECISEISAVOS_DE_FINAL;2026-07-03;05:00;Toronto Stadium (BMO Field);Portugal;Croacia;ABIERTO
+85;DIECISEISAVOS_DE_FINAL;2026-07-03;09:00;Vancouver Stadium (BC Place);Suiza;Argelia;ABIERTO
+86;DIECISEISAVOS_DE_FINAL;2026-07-04;00:00;Dallas Stadium (AT&T Stadium);Australia;Egipto;ABIERTO
+87;DIECISEISAVOS_DE_FINAL;2026-07-04;04:00;Miami Stadium (Hard Rock Stadium);Argentina;Cabo Verde;ABIERTO
+88;DIECISEISAVOS_DE_FINAL;2026-07-04;07:30;Kansas City Stadium (Arrowhead Stadium);Colombia;Ghana;ABIERTO
+89;OCTAVOS_DE_FINAL;2026-07-04;21:00;Philadelphia Stadium (Lincoln Financial Field);Paraguay;Francia;ABIERTO
+90;OCTAVOS_DE_FINAL;2026-07-04;23:00;Houston Stadium (NRG Stadium);Canadá;Marruecos;ABIERTO
+91;OCTAVOS_DE_FINAL;2026-07-05;20:00;Dallas Stadium (AT&T Stadium);Brasil;Noruega;ABIERTO
+92;OCTAVOS_DE_FINAL;2026-07-06;01:00;Mexico City Stadium (Estadio Azteca);México;Inglaterra;ABIERTO
+93;OCTAVOS_DE_FINAL;2026-07-06;19:00;Miami Stadium (Hard Rock Stadium);Portugal;España;ABIERTO
+94;OCTAVOS_DE_FINAL;2026-07-07;00:00;San Francisco Bay Area Stadium (Levi's Stadium);Estados Unidos;Bélgica;ABIERTO
+95;OCTAVOS_DE_FINAL;2026-07-07;16:00;Atlanta Stadium (Mercedes-Benz Stadium);Argentina;Egipto;ABIERTO
+96;OCTAVOS_DE_FINAL;2026-07-07;20:00;Vancouver Stadium (BC Place);Suiza;Colombia;ABIERTO
+97;CUARTOS_DE_FINAL;2026-07-09;20:00;Boston Stadium (Gillette Stadium);Francia;Marruecos;ABIERTO
+98;CUARTOS_DE_FINAL;2026-07-10;19:00;Los Angeles Stadium (SoFi Stadium);España;Bélgica;ABIERTO
+99;CUARTOS_DE_FINAL;2026-07-11;21:00;Miami Stadium (Hard Rock Stadium);Noruega;Inglaterra;ABIERTO
+100;CUARTOS_DE_FINAL;2026-07-12;01:00;Kansas City Stadium (Arrowhead Stadium);Argentina;Suiza;ABIERTO
+101;SEMIFINALES;2026-07-14;20:00;Dallas Stadium (AT&T Stadium);Francia;España;ABIERTO
+102;SEMIFINALES;2026-07-15;20:00;Atlanta Stadium (Mercedes-Benz Stadium);Inglaterra;Argentina;ABIERTO
+103;TERCER_LUGAR;2026-07-18;22:00;Miami Stadium (Hard Rock Stadium);Francia;Inglaterra;ABIERTO
+104;FINAL;2026-07-19;20:00;New York New Jersey Stadium (MetLife Stadium);España;Argentina;ABIERTO
