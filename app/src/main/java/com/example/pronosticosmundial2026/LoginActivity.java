@@ -37,20 +37,12 @@ public class LoginActivity extends AppCompatActivity {
         try {
             Usuario autenticado = validarCredenciales(user, pass);
 
-            // TODO: descomentar cuando existan MenuParticipanteActivity y MenuAdministradorActivity
-            /*
             Intent intent = autenticado.getTipoUsuario().equals("PARTICIPANTE")
                     ? new Intent(this, MenuParticipanteActivity.class)
                     : new Intent(this, MenuAdministradorActivity.class);
             intent.putExtra("idUsuario", autenticado.getIdUsuario());
             intent.putExtra("nombreCompleto", autenticado.getNombreCompleto());
             startActivity(intent);
-            */
-
-            // Prueba temporal mientras no existen los menús:
-            Toast.makeText(this,
-                    "Login OK: " + autenticado.getNombreCompleto() + " (" + autenticado.getTipoUsuario() + ")",
-                    Toast.LENGTH_LONG).show();
 
         } catch (CredencialesInvalidasException e) {
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
