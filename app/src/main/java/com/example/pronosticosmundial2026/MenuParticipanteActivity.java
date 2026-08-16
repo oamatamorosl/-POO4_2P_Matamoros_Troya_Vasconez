@@ -24,14 +24,12 @@ public class MenuParticipanteActivity extends AppCompatActivity {
         lblNombreParticipante.setText("Bienvenido, " + nombre);
     }
 
-    public void irTablaPosiciones(View v) {
-        // TODO: habilitar cuando se cree/pruebe TablaPosicionesActivity (Punto 3)
-        Toast.makeText(this, "Tabla de posiciones: pendiente (Punto 3)", Toast.LENGTH_SHORT).show();
-        /*
-        Intent intent = new Intent(this, TablaPosicionesActivity.class);
-        startActivity(intent);
-        */
-    }
+
+        public void irTablaPosiciones(View v) {
+            Intent intent = new Intent(this, TablaPosicionesActivity.class);
+            startActivity(intent);
+        }
+
 
     public void irPronosticos(View v) {
         // TODO: habilitar cuando se cree PronosticosActivity (Punto 4)
