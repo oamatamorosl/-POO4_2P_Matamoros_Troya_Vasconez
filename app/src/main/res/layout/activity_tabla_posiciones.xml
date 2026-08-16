@@ -8,7 +8,10 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tabla de posiciones" />
+        android:text="Tabla de posiciones"
+        android:textColor="#1B2A4A"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,6 +19,7 @@
         android:layout_weight="1">
 
         <TableLayout
+            android:stretchColumns="*"
             android:id="@+id/tablaLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
