@@ -2,37 +2,122 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="32dp">
+    android:background="@color/azul_claro_fondo">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pronósticos Mundial 2026"
-        android:textSize="22sp"
-        android:layout_marginBottom="24dp"/>
-
-    <EditText
-        android:id="@+id/editUsuario"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:hint="Nombre de usuario"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
 
-    <EditText
-        android:id="@+id/editContrasenia"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:inputType="textPassword"
-        android:hint="Contraseña"
-        android:layout_marginTop="12dp"/>
+        <ImageView
+            android:layout_width="536dp"
+            android:layout_height="196dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Logo Mundial 2026"
+            android:src="@drawable/trofeo_mundial" />
 
-    <Button
-        android:id="@+id/btnIngresar"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Usuario"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/azul_marino_oscuro"
+            android:layout_marginBottom="6dp"/>
+
+        <!-- Campo Usuario -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/caja_blanca"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_usuario"
+                android:contentDescription="Icono usuario"/>
+
+            <EditText
+                android:id="@+id/editUsuario"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:hint="Ingrese su usuario"
+                android:textColorHint="@color/gris_hint"
+                android:background="@android:color/transparent"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contraseña"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/azul_marino_oscuro"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp"/>
+
+        <!-- Campo Contraseña -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/caja_blanca"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_candado"
+                android:contentDescription="Icono contraseña"/>
+
+            <EditText
+                android:id="@+id/editContrasenia"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:inputType="textPassword"
+                android:hint="Ingrese su contraseña"
+                android:textColorHint="@color/gris_hint"
+                android:background="@android:color/transparent"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnIngresar"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="INICIAR SESIÓN"
+            android:onClick="iniciarSesion"
+            app:backgroundTint="@color/azul_marino"
+            app:cornerRadius="28dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="28dp"/>
+
+    </LinearLayout>
+
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Ingresar"
-        android:onClick="iniciarSesion"
-        android:layout_marginTop="20dp"/>
+        android:layout_height="147dp"
+        android:contentDescription="Estadio"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fondo_estadio" />
 
 </LinearLayout>

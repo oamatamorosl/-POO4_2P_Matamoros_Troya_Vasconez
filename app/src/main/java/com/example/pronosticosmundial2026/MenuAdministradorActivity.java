@@ -22,7 +22,7 @@ public class MenuAdministradorActivity extends AppCompatActivity {
 
         idUsuario = getIntent().getStringExtra("idUsuario");
         String nombre = getIntent().getStringExtra("nombreCompleto");
-        lblNombreAdministrador.setText("Bienvenido, " + nombre);
+        lblNombreAdministrador.setText("Bienvenido, "+"\n" + nombre);
         lblTipoUsuario.setText("Administrador");
     }
 

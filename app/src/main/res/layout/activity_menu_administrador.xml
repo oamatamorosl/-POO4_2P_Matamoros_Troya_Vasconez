@@ -1,48 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="32dp">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/lblNombreAdministrador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="32dp"/>
-
-    <TextView
-        android:id="@+id/lblTipoUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="#666666"
-        android:layout_marginBottom="32dp"/>
-
-    <Button
-        android:id="@+id/btnAdministrarPartidos"
+    <!-- Fondo único para toda la pantalla -->
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Administrar partidos"
-        android:onClick="irAdministrarPartidos"/>
+        android:layout_height="match_parent"
+        android:src="@drawable/fondo_menu"
+        android:scaleType="centerCrop"
+        android:contentDescription="Fondo pantalla"/>
 
-    <Button
-        android:id="@+id/btnActualizarPuntajes"
+    <!-- Contenido encima del fondo -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Actualizar puntajes"
-        android:onClick="irActualizarPuntajes"
-        android:layout_marginTop="12dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnSalir"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Salir"
-        android:onClick="salir"
-        android:layout_marginTop="24dp"/>
+        <!-- Zona superior: datos del usuario -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="20dp">
 
-</LinearLayout>
+            <ImageView
+                android:id="@+id/imgAvatar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_usuario"
+                android:contentDescription="Avatar"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:id="@+id/lblNombreAdministrador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:id="@+id/lblTipoUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/verde_participante"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/imgIconoMundial"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_trofeo_blanco"
+                android:contentDescription="Mundial 2026"/>
+
+        </LinearLayout>
+
+        <!-- Opciones del menú -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Administrar partidos -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/caja_blanca"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:elevation="2dp"
+                android:onClick="irAdministrarPartidos"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_balon"
+                    android:contentDescription="Administrar partidos"/>
+
+                <TextView
+                    android:id="@+id/btnAdministrarPartidos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="14dp"
+                    android:text="Administrar partidos"
+                    android:textColor="@color/azul_marino_oscuro"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_chevron_derecha"
+                    android:contentDescription="Ir"/>
+
+            </LinearLayout>
+
+            <!-- Actualizar puntajes -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/caja_blanca"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:elevation="2dp"
+                android:onClick="irActualizarPuntajes"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="14dp">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_portapapeles"
+                    android:contentDescription="Actualizar puntajes"/>
+
+                <TextView
+                    android:id="@+id/btnActualizarPuntajes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="14dp"
+                    android:text="Actualizar puntajes"
+                    android:textColor="@color/azul_marino_oscuro"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_chevron_derecha"
+                    android:contentDescription="Ir"/>
+
+            </LinearLayout>
+
+            <!-- Salir -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/caja_blanca"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:elevation="2dp"
+                android:onClick="salir"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="14dp">
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_salir"
+                    android:contentDescription="Salir"/>
+
+                <TextView
+                    android:id="@+id/btnSalir"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="14dp"
+                    android:text="Salir"
+                    android:textColor="@color/azul_marino_oscuro"
+                    android:textStyle="bold"
+                    android:textSize="15sp"/>
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_chevron_derecha"
+                    android:contentDescription="Ir"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

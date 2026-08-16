@@ -23,12 +23,14 @@ public class MenuParticipanteActivity extends AppCompatActivity {
 
         idUsuario = getIntent().getStringExtra("idUsuario");
         String nombre = getIntent().getStringExtra("nombreCompleto");
-        lblNombreParticipante.setText("Bienvenido, " + nombre);
+        lblNombreParticipante.setText("Bienvenido, "+"\n" + nombre);
         lblTipoUsuario.setText("Participante");
     }
 
     public void irTablaPosiciones(View v) {
         Intent intent = new Intent(this, TablaPosicionesActivity.class);
+        intent.putExtra("idUsuario", idUsuario);
+        intent.putExtra("nombreCompleto", getIntent().getStringExtra("nombreCompleto"));
         startActivity(intent);
     }
 

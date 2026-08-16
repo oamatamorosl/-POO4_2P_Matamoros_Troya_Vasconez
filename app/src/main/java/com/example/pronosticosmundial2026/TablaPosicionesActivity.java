@@ -22,6 +22,7 @@ import java.util.Map;
 public class TablaPosicionesActivity extends AppCompatActivity {
 
     private TableLayout tablaLayout;
+    private TextView lblNombreParticipante;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,10 @@ public class TablaPosicionesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tabla_posiciones);
 
         tablaLayout = findViewById(R.id.tablaLayout);
+        lblNombreParticipante = findViewById(R.id.lblNombreParticipante);
+
+        String nombre = getIntent().getStringExtra("nombreCompleto");
+        lblNombreParticipante.setText(nombre);
 
         try {
             List<Participante> lista = cargarParticipantes();
@@ -38,8 +43,8 @@ public class TablaPosicionesActivity extends AppCompatActivity {
         } catch (IOException e) {
             Toast.makeText(this, "No se pudo cargar la tabla de posiciones.", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
-        Toast.makeText(this, "Error inesperado al procesar los datos.", Toast.LENGTH_SHORT).show();
-    }
+            Toast.makeText(this, "Error inesperado al procesar los datos.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private List<Participante> cargarParticipantes() throws IOException {

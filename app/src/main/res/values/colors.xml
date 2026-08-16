@@ -2,4 +2,14 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="azul_marino">#1A3C6E</color>
+    <color name="azul_marino_oscuro">#0F2847</color>
+    <color name="azul_claro_fondo">#F4F7FB</color>
+    <color name="gris_borde">#D9DEE6</color>
+    <color name="gris_hint">#9AA3AF</color>
+    <color name="verde_cancha">#2E7D32</color>
+    <color name="verde_cancha_claro">#66BB6A</color>
+    <color name="verde_participante">#4CAF50</color>
+    <color name="gris_texto_claro">#8A93A3</color>
+    <color name="azul_header_claro">#1E4A7A</color>
 </resources>
