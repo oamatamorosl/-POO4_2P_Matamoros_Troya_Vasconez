@@ -3,39 +3,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="#F2F4F7">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pronósticos"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#1B2A4A"
-        android:layout_marginBottom="12dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fase del torneo"
-        android:layout_marginBottom="4dp"/>
-
-    <Spinner
-        android:id="@+id/spFase"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#1B2A4A"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pronósticos"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registra tus marcadores del Mundial 2026"
+            android:textSize="13sp"
+            android:textColor="#B0BEC5"
+            android:layout_marginTop="2dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fase del torneo"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#1B2A4A"
+            android:layout_marginBottom="6dp"/>
+
+        <Spinner
+            android:id="@+id/spFase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:padding="8dp"/>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="12dp">
+        android:scrollbars="none">
 
         <LinearLayout
             android:id="@+id/partidosLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"/>
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp"/>
 
     </ScrollView>
 
@@ -44,6 +76,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Volver al menú principal"
-        android:layout_marginTop="12dp"/>
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#1B2A4A"/>
 
 </LinearLayout>
