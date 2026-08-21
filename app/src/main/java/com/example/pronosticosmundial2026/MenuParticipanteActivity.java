@@ -41,13 +41,9 @@ public class MenuParticipanteActivity extends AppCompatActivity {
     }
 
     public void irMisPronosticos(View v) {
-        // TODO: habilitar cuando se cree MisPronosticosActivity (Punto 5)
-        Toast.makeText(this, "Mis pronósticos: pendiente (Punto 5)", Toast.LENGTH_SHORT).show();
-        /*
         Intent intent = new Intent(this, MisPronosticosActivity.class);
         intent.putExtra("idUsuario", idUsuario);
         startActivity(intent);
-        */
     }
 
     public void salir(View v) {
