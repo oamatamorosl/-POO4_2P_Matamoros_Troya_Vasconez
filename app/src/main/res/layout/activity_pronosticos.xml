@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pronósticos"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#1B2A4A"
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fase del torneo"
+        android:layout_marginBottom="4dp"/>
+
+    <Spinner
+        android:id="@+id/spFase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp">
+
+        <LinearLayout
+            android:id="@+id/partidosLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Volver al menú principal"
+        android:layout_marginTop="12dp"/>
+
+</LinearLayout>
