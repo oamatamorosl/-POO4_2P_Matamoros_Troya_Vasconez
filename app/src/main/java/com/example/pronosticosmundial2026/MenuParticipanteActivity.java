@@ -11,6 +11,7 @@ public class MenuParticipanteActivity extends AppCompatActivity {
 
     private String idUsuario;
     private TextView lblNombreParticipante;
+    private TextView lblTipoUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,18 +19,20 @@ public class MenuParticipanteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_participante);
 
         lblNombreParticipante = findViewById(R.id.lblNombreParticipante);
+        lblTipoUsuario = findViewById(R.id.lblTipoUsuario);
 
         idUsuario = getIntent().getStringExtra("idUsuario");
         String nombre = getIntent().getStringExtra("nombreCompleto");
-        lblNombreParticipante.setText("Bienvenido, " + nombre);
+        lblNombreParticipante.setText("Bienvenido, "+"\n" + nombre);
+        lblTipoUsuario.setText("Participante");
     }
 
-
-        public void irTablaPosiciones(View v) {
-            Intent intent = new Intent(this, TablaPosicionesActivity.class);
-            startActivity(intent);
-        }
-
+    public void irTablaPosiciones(View v) {
+        Intent intent = new Intent(this, TablaPosicionesActivity.class);
+        intent.putExtra("idUsuario", idUsuario);
+        intent.putExtra("nombreCompleto", getIntent().getStringExtra("nombreCompleto"));
+        startActivity(intent);
+    }
 
     public void irPronosticos(View v) {
         // TODO: habilitar cuando se cree PronosticosActivity (Punto 4)
