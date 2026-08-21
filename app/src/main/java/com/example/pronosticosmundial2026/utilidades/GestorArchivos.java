@@ -2,6 +2,7 @@ package com.example.pronosticosmundial2026.utilidades;
 
 import android.content.Context;
 import java.io.*;
+import java.util.List;
 
 public class GestorArchivos {
 
@@ -25,4 +26,34 @@ public class GestorArchivos {
         asegurarCopiaInterna(ctx, nombreArchivo);
         return new BufferedReader(new InputStreamReader(ctx.openFileInput(nombreArchivo)));
     }
+
+
+    public static void escribirInterno(Context ctx, String nombreArchivo, List<String> lineas) throws IOException {
+        try (PrintWriter writer = new PrintWriter(
+                new OutputStreamWriter(ctx.openFileOutput(nombreArchivo, Context.MODE_PRIVATE)))) {
+            for (String linea : lineas) {
+                writer.println(linea);
+            }
+        }
+
+    }
+
+
+    public static void guardarObjeto(Context ctx, String nombreArchivo, Object objeto) throws IOException {
+        try (ObjectOutputStream out = new ObjectOutputStream(
+                ctx.openFileOutput(nombreArchivo, Context.MODE_PRIVATE))) {
+            out.writeObject(objeto);
+        }
+    }
+
+
+    public static Object leerObjeto(Context ctx, String nombreArchivo) throws IOException, ClassNotFoundException {
+        File archivo = new File(ctx.getFilesDir(), nombreArchivo);
+        if (!archivo.exists()) return null;
+        try (ObjectInputStream in = new ObjectInputStream(ctx.openFileInput(nombreArchivo))) {
+            return in.readObject();
+        }
+    }
+
+
 }
