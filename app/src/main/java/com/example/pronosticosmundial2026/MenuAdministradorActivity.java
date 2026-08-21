@@ -10,6 +10,7 @@ public class MenuAdministradorActivity extends AppCompatActivity {
 
     private String idUsuario;
     private TextView lblNombreAdministrador;
+    private TextView lblTipoUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +18,12 @@ public class MenuAdministradorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu_administrador);
 
         lblNombreAdministrador = findViewById(R.id.lblNombreAdministrador);
+        lblTipoUsuario = findViewById(R.id.lblTipoUsuario);
 
         idUsuario = getIntent().getStringExtra("idUsuario");
         String nombre = getIntent().getStringExtra("nombreCompleto");
-        lblNombreAdministrador.setText("Bienvenido, " + nombre);
+        lblNombreAdministrador.setText("Bienvenido, "+"\n" + nombre);
+        lblTipoUsuario.setText("Administrador");
     }
 
     public void irAdministrarPartidos(View v) {

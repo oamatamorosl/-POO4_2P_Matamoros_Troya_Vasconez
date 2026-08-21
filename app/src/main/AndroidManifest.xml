@@ -26,8 +26,7 @@
         <activity android:name=".MenuAdministradorActivity"
             android:exported="false"/>
 
-        <activity android:name=".TablaPosicionesActivity"
-            android:exported="false"/>
+        <activity android:name=".TablaPosicionesActivity" android:exported="false"/>
 
     </application>
 
