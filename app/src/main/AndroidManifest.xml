@@ -28,6 +28,8 @@
 
         <activity android:name=".TablaPosicionesActivity" android:exported="false"/>
 
+        <activity android:name=".AdministrarPartidosActivity" android:exported="false" />
+
     </application>
 
 </manifest>
