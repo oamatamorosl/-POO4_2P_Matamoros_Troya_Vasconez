@@ -28,7 +28,15 @@
 
         <activity android:name=".TablaPosicionesActivity" android:exported="false"/>
 
+
         <activity android:name=".AdministrarPartidosActivity" android:exported="false" />
+
+        <activity android:name=".PronosticosActivity" android:exported="false"/>
+
+        <activity
+            android:name=".MisPronosticosActivity"
+            android:exported="false" />
+
 
     </application>
 
