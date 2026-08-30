@@ -1,5 +1,6 @@
 package com.example.pronosticosmundial2026;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -27,8 +28,8 @@ public class MenuAdministradorActivity extends AppCompatActivity {
     }
 
     public void irAdministrarPartidos(View v) {
-        // TODO: habilitar cuando se cree AdministrarPartidosActivity (Punto 6)
-        Toast.makeText(this, "Administrar partidos: pendiente", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, AdministrarPartidosActivity.class);
+        startActivity(intent);
     }
 
     public void irActualizarPuntajes(View v) {
