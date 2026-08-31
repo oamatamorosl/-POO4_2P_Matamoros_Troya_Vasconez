@@ -37,6 +37,8 @@
             android:name=".MisPronosticosActivity"
             android:exported="false" />
 
+        <activity android:name=".ActualizarPuntajesActivity" android:exported="false" />
+
 
     </application>
 
