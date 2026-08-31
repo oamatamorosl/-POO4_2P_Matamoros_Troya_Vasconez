@@ -33,8 +33,8 @@ public class MenuAdministradorActivity extends AppCompatActivity {
     }
 
     public void irActualizarPuntajes(View v) {
-        // TODO: habilitar cuando se cree ActualizarPuntajesActivity (Punto 7)
-        Toast.makeText(this, "Actualizar puntajes: pendiente", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, ActualizarPuntajesActivity.class);
+        startActivity(intent);
     }
 
     public void salir(View v) {
