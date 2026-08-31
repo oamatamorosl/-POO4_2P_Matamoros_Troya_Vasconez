@@ -19,11 +19,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Pantalla que muestra la tabla de posiciones de todos los participantes,
+ * ordenada de mayor a menor puntaje (y alfabéticamente en caso de empate).
+ * Combina los datos de usuarios.txt y participantes.txt para construir la tabla.
+ *
+ * @author Equipo POO
+ * @version 1.0
+ */
 public class TablaPosicionesActivity extends AppCompatActivity {
 
+    /** Contenedor donde se agregan dinámicamente las filas de la tabla. */
     private TableLayout tablaLayout;
+
+    /** Etiqueta que muestra el nombre del participante autenticado. */
     private TextView lblNombreParticipante;
 
+    /**
+     * Inicializa la pantalla, carga los participantes, los ordena y construye
+     * la tabla de posiciones. Muestra un mensaje si ocurre un error de lectura.
+     *
+     * @param savedInstanceState Estado previamente guardado de la actividad, si existe.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +64,14 @@ public class TablaPosicionesActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Carga la lista de participantes combinando los nombres de usuarios.txt
+     * con los puntajes de participantes.txt. El nombre de usuario se usa para
+     * el desempate alfabético y el nombre completo para mostrar en la tabla.
+     *
+     * @return Lista de participantes con su puntaje acumulado.
+     * @throws IOException Si ocurre un error al leer alguno de los archivos.
+     */
     private List<Participante> cargarParticipantes() throws IOException {
         Map<String, String> nombresUsuarioPorId = new HashMap<>();
         Map<String, String> nombresCompletosPorId = new HashMap<>();
@@ -78,6 +103,9 @@ public class TablaPosicionesActivity extends AppCompatActivity {
         return lista;
     }
 
+    /**
+     * Agrega la fila de encabezado (Posición, Participante, Puntos) a la tabla.
+     */
     private void mostrarEncabezado() {
         TableRow fila = new TableRow(this);
         fila.addView(crearCelda("Pos.", true));
@@ -86,6 +114,11 @@ public class TablaPosicionesActivity extends AppCompatActivity {
         tablaLayout.addView(fila);
     }
 
+    /**
+     * Agrega una fila por cada participante, mostrando su posición, nombre y puntaje.
+     *
+     * @param lista Lista de participantes ya ordenada.
+     */
     private void mostrarTabla(List<Participante> lista) {
         int posicion = 1;
         for (Participante p : lista) {
@@ -98,6 +131,14 @@ public class TablaPosicionesActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Crea una celda de texto para la tabla, resaltándola en negrita si es
+     * parte del encabezado.
+     *
+     * @param texto Contenido de la celda.
+     * @param esEncabezado {@code true} si la celda pertenece al encabezado.
+     * @return La celda ({@link TextView}) configurada.
+     */
     private TextView crearCelda(String texto, boolean esEncabezado) {
         TextView tv = new TextView(this);
         tv.setText(texto);
@@ -106,6 +147,11 @@ public class TablaPosicionesActivity extends AppCompatActivity {
         return tv;
     }
 
+    /**
+     * Regresa al menú principal del participante.
+     *
+     * @param v Vista que originó el evento.
+     */
     public void volver(View v) {
         finish();
     }
