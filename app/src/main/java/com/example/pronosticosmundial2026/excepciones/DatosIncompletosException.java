@@ -7,7 +7,7 @@ package com.example.pronosticosmundial2026.excepciones;
  * @author Equipo POO
  * @version 1.0
  */
-public class DatosIncompletosException extends RuntimeException {
+public class DatosIncompletosException extends Exception {
 
     /**
      * Crea la excepción con un mensaje descriptivo del error.
