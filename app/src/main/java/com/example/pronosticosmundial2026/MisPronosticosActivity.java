@@ -25,26 +25,53 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Pantalla que muestra al participante todos los pronósticos que ha registrado,
+ * agrupados por fase. Para cada uno presenta el pronóstico, el resultado oficial
+ * (si está disponible) y los puntos obtenidos, o un mensaje de pendiente cuando
+ * el resultado o el puntaje aún no existen.
+ *
+ * @author Equipo POO
+ * @version 1.0
+ */
 public class MisPronosticosActivity extends AppCompatActivity {
 
+    /** Contenedor donde se agregan dinámicamente las tarjetas de pronósticos. */
     private LinearLayout pronosticosLayout;
+
+    /** Identificador del participante autenticado. */
     private String idUsuario;
 
+    /** Color azul usado en la interfaz. */
     private static final int AZUL = 0xFF1B2A4A;
+
+    /** Color gris usado en la interfaz. */
     private static final int GRIS = 0xFF6B7280;
+
+    /** Color verde usado en la interfaz. */
     private static final int VERDE = 0xFF2E7D32;
+
+    /** Color naranja usado en la interfaz. */
     private static final int NARANJA = 0xFFEF6C00;
 
+    /** Nombres internos de las fases, tal como aparecen en los archivos. */
     private final String[] FASES = {
             "FASE_DE_GRUPOS", "DIECISEISAVOS_DE_FINAL", "OCTAVOS_DE_FINAL",
             "CUARTOS_DE_FINAL", "SEMIFINALES", "TERCER_LUGAR", "FINAL"
     };
 
+    /** Nombres visibles de las fases, mostrados al usuario. */
     private final String[] FASES_TEXTO = {
             "Fase de grupos", "Dieciseisavos de final", "Octavos de final",
             "Cuartos de final", "Semifinales", "Tercer lugar", "Final"
     };
 
+    /**
+     * Inicializa la pantalla, enlaza el botón de volver y carga los pronósticos
+     * del participante.
+     *
+     * @param savedInstanceState Estado previamente guardado de la actividad, si existe.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,10 +92,24 @@ public class MisPronosticosActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Convierte una medida en dp a píxeles según la densidad de la pantalla.
+     *
+     * @param valor Medida en dp.
+     * @return Medida equivalente en píxeles.
+     */
     private int dp(int valor) {
         return (int) (valor * getResources().getDisplayMetrics().density);
     }
 
+    /**
+     * Crea un fondo con esquinas redondeadas y borde opcional.
+     *
+     * @param color Color de relleno.
+     * @param radio Radio de las esquinas en dp.
+     * @param colorBorde Color del borde, o 0 para no dibujar borde.
+     * @return El fondo ({@link GradientDrawable}) configurado.
+     */
     private GradientDrawable fondoRedondeado(int color, int radio, int colorBorde) {
         GradientDrawable d = new GradientDrawable();
         d.setColor(color);
@@ -80,7 +121,11 @@ public class MisPronosticosActivity extends AppCompatActivity {
     }
 
     /**
-     * Carga los pronósticos del usuario de todas las fases.
+     * Carga y muestra los pronósticos del participante de todas las fases,
+     * combinándolos con los partidos y los resultados oficiales. Si no hay
+     * ningún pronóstico registrado, muestra un mensaje informativo.
+     *
+     * @throws IOException Si ocurre un error al leer los archivos.
      */
     private void cargarPronosticos() throws IOException {
         pronosticosLayout.removeAllViews();
@@ -104,7 +149,10 @@ public class MisPronosticosActivity extends AppCompatActivity {
     }
 
     /**
-     * Lee los pronósticos serializados de una fase.
+     * Lee los pronósticos serializados del participante para una fase.
+     *
+     * @param fase Nombre interno de la fase.
+     * @return Lista de pronósticos de esa fase, o una lista vacía si no existen.
      */
     private ArrayList<Pronostico> cargarPronosticosFase(String fase) {
         String nombreArchivo = "pronostico_" + idUsuario + "_" + fase + ".dat";
@@ -118,8 +166,10 @@ public class MisPronosticosActivity extends AppCompatActivity {
     }
 
     /**
-     * Carga todos los partidos desde partidos.txt.
-     * Se almacenan en un Map usando el id del partido.
+     * Carga todos los partidos desde partidos.txt, indexados por su identificador.
+     *
+     * @return Mapa de partidos por id de partido.
+     * @throws IOException Si ocurre un error al leer el archivo.
      */
     private Map<Integer, Partido> cargarPartidos() throws IOException {
         Map<Integer, Partido> mapa = new HashMap<>();
@@ -142,7 +192,11 @@ public class MisPronosticosActivity extends AppCompatActivity {
     }
 
     /**
-     * Carga los resultados oficiales desde resultados.txt.
+     * Carga los resultados oficiales desde resultados.txt, indexados por el
+     * identificador del partido.
+     *
+     * @return Mapa de resultados por id de partido.
+     * @throws IOException Si ocurre un error al leer el archivo.
      */
     private Map<Integer, Resultado> cargarResultados() throws IOException {
         Map<Integer, Resultado> mapa = new HashMap<>();
@@ -165,8 +219,14 @@ public class MisPronosticosActivity extends AppCompatActivity {
     }
 
     /**
-     * Muestra los pronósticos correspondientes
-     * a una determinada fase.
+     * Muestra el título de una fase y las tarjetas de los pronósticos que le
+     * corresponden.
+     *
+     * @param lista Lista de pronósticos de la fase.
+     * @param fase Nombre interno de la fase.
+     * @param faseTexto Nombre visible de la fase.
+     * @param partidos Mapa de partidos por id.
+     * @param resultados Mapa de resultados por id de partido.
      */
     private void mostrarPronosticos(List<Pronostico> lista, String fase, String faseTexto, Map<Integer, Partido> partidos, Map<Integer, Resultado> resultados) {
         // Título de la fase
@@ -190,7 +250,12 @@ public class MisPronosticosActivity extends AppCompatActivity {
     }
 
     /**
-     * Crea visualmente una tarjeta para cada pronóstico.
+     * Crea visualmente una tarjeta con la información de un pronóstico: datos del
+     * partido, marcador pronosticado, resultado oficial y puntos obtenidos.
+     *
+     * @param pronostico Pronóstico del participante.
+     * @param partido Partido asociado al pronóstico.
+     * @param resultado Resultado oficial del partido, o {@code null} si no existe.
      */
     private void crearTarjetaPronostico(Pronostico pronostico, Partido partido, Resultado resultado) {
         LinearLayout tarjeta = new LinearLayout(this);
@@ -308,8 +373,8 @@ public class MisPronosticosActivity extends AppCompatActivity {
     }
 
     /**
-     * Mensaje cuando el participante todavía
-     * no tiene pronósticos registrados.
+     * Muestra un mensaje cuando el participante todavía no tiene pronósticos
+     * registrados.
      */
     private void mostrarMensajeSinPronosticos() {
         TextView tvMensaje = new TextView(this);
@@ -321,6 +386,11 @@ public class MisPronosticosActivity extends AppCompatActivity {
         pronosticosLayout.addView(tvMensaje);
     }
 
+    /**
+     * Regresa al menú principal del participante.
+     *
+     * @param view Vista que originó el evento.
+     */
     public void volver(View view) {
         finish();
     }

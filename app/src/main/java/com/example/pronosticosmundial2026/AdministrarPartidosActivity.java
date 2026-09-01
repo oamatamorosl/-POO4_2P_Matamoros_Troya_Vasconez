@@ -29,25 +29,52 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Pantalla de administración de partidos (opción del administrador). Permite
+ * consultar los partidos por fase, cerrar los pronósticos y registrar los
+ * resultados oficiales, gestionando las transiciones de estado
+ * (ABIERTO, CERRADO, FINALIZADO) y su persistencia en archivos. Toda la
+ * interfaz se construye de forma dinámica por código.
+ *
+ * @author Equipo POO
+ * @version 1.0
+ */
 public class AdministrarPartidosActivity extends AppCompatActivity {
 
+    /** Selector de la fase del torneo. */
     private Spinner spFase;
+
+    /** Contenedor donde se agregan dinámicamente las tarjetas de los partidos. */
     private LinearLayout partidosLayout;
 
+    /** Color azul usado en la interfaz. */
     private static final int AZUL = 0xFF1B2A4A;
+
+    /** Color gris usado en la interfaz. */
     private static final int GRIS = 0xFF6B7280;
+
+    /** Color verde usado en la interfaz. */
     private static final int VERDE = 0xFF2E7D32;
 
+    /** Nombres internos de las fases, tal como aparecen en partidos.txt. */
     private final String[] FASES = {
             "FASE_DE_GRUPOS", "DIECISEISAVOS_DE_FINAL", "OCTAVOS_DE_FINAL",
             "CUARTOS_DE_FINAL", "SEMIFINALES", "TERCER_LUGAR", "FINAL"
     };
 
+    /** Nombres visibles de las fases, mostrados al usuario en el Spinner. */
     private final String[] FASES_TEXTO = {
             "Fase de grupos", "Dieciseisavos de final", "Octavos de final",
             "Cuartos de final", "Semifinales", "Partido por el tercer lugar", "Final"
     };
 
+    /**
+     * Inicializa la pantalla construyendo dinámicamente el título, el Spinner
+     * de fases, el área desplazable de partidos y el botón de volver. Configura
+     * además el listener que refresca los partidos al cambiar de fase.
+     *
+     * @param savedInstanceState Estado previamente guardado de la actividad, si existe.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,10 +136,24 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Convierte una medida en dp a píxeles según la densidad de la pantalla.
+     *
+     * @param valor Medida en dp.
+     * @return Medida equivalente en píxeles.
+     */
     private int dp(int valor) {
         return (int) (valor * getResources().getDisplayMetrics().density);
     }
 
+    /**
+     * Crea un fondo con esquinas redondeadas y borde opcional.
+     *
+     * @param color Color de relleno.
+     * @param radio Radio de las esquinas en dp.
+     * @param colorBorde Color del borde, o 0 para no dibujar borde.
+     * @return El fondo ({@link GradientDrawable}) configurado.
+     */
     private GradientDrawable fondoRedondeado(int color, int radio, int colorBorde) {
         GradientDrawable d = new GradientDrawable();
         d.setColor(color);
@@ -121,6 +162,11 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         return d;
     }
 
+    /**
+     * Vuelve a cargar y mostrar los partidos de la fase indicada.
+     *
+     * @param fase Nombre interno de la fase a mostrar.
+     */
     private void refrescar(String fase) {
         try {
             mostrarPartidos(cargarPartidos(fase));
@@ -130,7 +176,13 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         }
     }
 
-    // Carga SOLO los partidos de una fase (para mostrar)
+    /**
+     * Carga únicamente los partidos que pertenecen a una fase determinada.
+     *
+     * @param fase Nombre interno de la fase.
+     * @return Lista de partidos de esa fase.
+     * @throws IOException Si ocurre un error al leer el archivo de partidos.
+     */
     private List<Partido> cargarPartidos(String fase) throws IOException {
         List<Partido> lista = new ArrayList<>();
         for (Partido p : cargarTodos()) {
@@ -139,7 +191,14 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         return lista;
     }
 
-    // Carga TODOS los partidos (necesario para reescribir el archivo completo)
+    /**
+     * Carga todos los partidos registrados en partidos.txt. Es necesario cargar
+     * la lista completa para poder reescribir el archivo íntegro al cambiar el
+     * estado de un solo partido.
+     *
+     * @return Lista con todos los partidos del torneo.
+     * @throws IOException Si ocurre un error al leer el archivo.
+     */
     private List<Partido> cargarTodos() throws IOException {
         List<Partido> lista = new ArrayList<>();
         try (BufferedReader reader = GestorArchivos.leerDeInterno(this, "partidos.txt")) {
@@ -155,6 +214,12 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         return lista;
     }
 
+    /**
+     * Construye y muestra dinámicamente una tarjeta por cada partido, con los
+     * controles correspondientes a su estado.
+     *
+     * @param partidos Lista de partidos a mostrar.
+     */
     private void mostrarPartidos(List<Partido> partidos) {
         partidosLayout.removeAllViews();
 
@@ -227,6 +292,12 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Aplica color y fondo a la etiqueta de estado según el estado del partido.
+     *
+     * @param tv Etiqueta a la que se aplica el estilo.
+     * @param estado Estado del partido (ABIERTO, CERRADO o FINALIZADO).
+     */
     private void pintarEstado(TextView tv, String estado) {
         if (estado.equals("ABIERTO")) {
             tv.setTextColor(VERDE);
@@ -240,7 +311,13 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         }
     }
 
-    // ---- ABIERTO: botón Cerrar pronósticos ----
+    /**
+     * Agrega a la tarjeta los controles de un partido en estado ABIERTO:
+     * un aviso y el botón para cerrar los pronósticos.
+     *
+     * @param tarjeta Tarjeta del partido.
+     * @param p Partido correspondiente.
+     */
     private void agregarControlesAbierto(LinearLayout tarjeta, Partido p) {
         TextView aviso = new TextView(this);
         aviso.setText("Los participantes pueden registrar o modificar sus pronósticos.");
@@ -263,7 +340,14 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         tarjeta.addView(btn);
     }
 
-    // ---- CERRADO: mensaje + Registrar resultado (habilita goles) + Guardar ----
+    /**
+     * Agrega a la tarjeta los controles de un partido en estado CERRADO:
+     * un aviso, los campos de goles (inicialmente deshabilitados), el botón
+     * para registrar el resultado (que los habilita) y el botón para guardarlo.
+     *
+     * @param tarjeta Tarjeta del partido.
+     * @param p Partido correspondiente.
+     */
     private void agregarControlesCerrado(LinearLayout tarjeta, Partido p) {
         TextView aviso = new TextView(this);
         aviso.setText("Los pronósticos están cerrados. Registre el resultado oficial cuando el partido haya finalizado.");
@@ -332,7 +416,13 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         tarjeta.addView(btnGuardar);
     }
 
-    // ---- FINALIZADO: muestra resultado, todo deshabilitado ----
+    /**
+     * Agrega a la tarjeta los controles de un partido en estado FINALIZADO:
+     * muestra el resultado oficial y un aviso de que ya no puede modificarse.
+     *
+     * @param tarjeta Tarjeta del partido.
+     * @param p Partido correspondiente.
+     */
     private void agregarControlesFinalizado(LinearLayout tarjeta, Partido p) {
         Resultado r = buscarResultado(p.getIdPartido());
 
@@ -358,6 +448,11 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         tarjeta.addView(aviso);
     }
 
+    /**
+     * Crea los parámetros de diseño estándar para los botones de las tarjetas.
+     *
+     * @return Parámetros de diseño con ancho completo y margen superior.
+     */
     private LinearLayout.LayoutParams btnParams() {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, dp(42));
@@ -365,6 +460,11 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         return lp;
     }
 
+    /**
+     * Crea un campo de texto numérico para ingresar goles.
+     *
+     * @return El campo ({@link EditText}) configurado para números.
+     */
     private EditText campoGoles() {
         EditText et = new EditText(this);
         et.setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -376,7 +476,14 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         return et;
     }
 
-    // ---- Persistencia: cambia estado y reescribe partidos.txt completo ----
+    /**
+     * Cambia el estado de un partido y persiste el cambio reescribiendo por
+     * completo el archivo partidos.txt. Carga todos los partidos, modifica el
+     * indicado y vuelve a guardar la lista íntegra.
+     *
+     * @param objetivo Partido cuyo estado se desea cambiar.
+     * @param nuevoEstado Nuevo estado a asignar.
+     */
     private void cambiarEstado(Partido objetivo, String nuevoEstado) {
         try {
             List<Partido> todos = cargarTodos();
@@ -393,6 +500,18 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Valida y guarda el resultado oficial de un partido. Verifica que los
+     * goles no estén vacíos, que sean enteros y que no sean negativos; luego
+     * agrega el resultado a resultados.txt y cambia el estado del partido a
+     * FINALIZADO.
+     *
+     * @param p Partido cuyo resultado se registra.
+     * @param g1 Goles ingresados para la selección 1, como texto.
+     * @param g2 Goles ingresados para la selección 2, como texto.
+     * @throws DatosIncompletosException Si algún dato falta o es inválido.
+     * @throws IOException Si ocurre un error al escribir los archivos.
+     */
     private void guardarResultado(Partido p, String g1, String g2)
             throws DatosIncompletosException, IOException {
 
@@ -427,7 +546,12 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         cambiarEstado(p, "FINALIZADO");
     }
 
-    // Reescribe partidos.txt con la cabecera + todos los partidos
+    /**
+     * Reescribe el archivo partidos.txt con la cabecera y todos los partidos.
+     *
+     * @param todos Lista completa de partidos a guardar.
+     * @throws IOException Si ocurre un error al escribir el archivo.
+     */
     private void guardarPartidos(List<Partido> todos) throws IOException {
         List<String> lineas = new ArrayList<>();
         lineas.add("idPartido;fase;fecha;horaUTC;estadio;seleccion1;seleccion2;estado");
@@ -437,7 +561,12 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         GestorArchivos.escribirInterno(this, "partidos.txt", lineas);
     }
 
-    // Devuelve las líneas de resultados.txt SIN cabecera
+    /**
+     * Lee las líneas de resultados.txt sin incluir la cabecera.
+     *
+     * @return Lista de líneas de resultados registrados.
+     * @throws IOException Si ocurre un error al leer el archivo.
+     */
     private List<String> leerResultadosCrudo() throws IOException {
         List<String> lineas = new ArrayList<>();
         try (BufferedReader reader = GestorArchivos.leerDeInterno(this, "resultados.txt")) {
@@ -450,6 +579,12 @@ public class AdministrarPartidosActivity extends AppCompatActivity {
         return lineas;
     }
 
+    /**
+     * Busca el resultado oficial correspondiente a un partido.
+     *
+     * @param idPartido Identificador del partido buscado.
+     * @return El {@link Resultado} del partido, o {@code null} si no existe.
+     */
     private Resultado buscarResultado(int idPartido) {
         try {
             for (String linea : leerResultadosCrudo()) {

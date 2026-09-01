@@ -25,27 +25,64 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Pantalla de actualización de puntajes (opción del administrador). Recorre
+ * todos los pronósticos registrados, los compara con los resultados oficiales
+ * de los partidos finalizados, calcula los puntos según las reglas del torneo
+ * y actualiza el puntaje acumulado de cada participante en participantes.txt.
+ * Toda la interfaz se construye de forma dinámica por código.
+ *
+ * @author Equipo POO
+ * @version 1.0
+ */
 public class ActualizarPuntajesActivity extends AppCompatActivity {
 
-    // ---- Paleta ----
+    /** Color azul usado en la interfaz. */
     private static final int AZUL = 0xFF1B2A4A;
+
+    /** Color gris usado en la interfaz. */
     private static final int GRIS = 0xFF6B7280;
+
+    /** Color verde usado en la interfaz. */
     private static final int VERDE = 0xFF2E7D32;
+
+    /** Fondo verde claro usado en la interfaz. */
     private static final int VERDE_CLARO_FONDO = 0xFFE8F5E9;
+
+    /** Verde medio usado en las etiquetas de reglas. */
     private static final int VERDE_MEDIO = 0xFF43A047;
+
+    /** Verde tenue usado en las etiquetas de reglas. */
     private static final int VERDE_TENUE = 0xFF66BB6A;
+
+    /** Fondo del banner informativo. */
     private static final int AZUL_INFO_FONDO = 0xFFE8F0FE;
+
+    /** Color de texto del banner informativo. */
     private static final int AZUL_INFO_TEXTO = 0xFF1A56DB;
+
+    /** Color de fondo general de la pantalla. */
     private static final int GRIS_FONDO = 0xFFF3F4F6;
+
+    /** Color blanco usado en la interfaz. */
     private static final int BLANCO = 0xFFFFFFFF;
 
+    /** Nombres internos de las fases, tal como aparecen en los archivos. */
     private final String[] FASES = {
             "FASE_DE_GRUPOS", "DIECISEISAVOS_DE_FINAL", "OCTAVOS_DE_FINAL",
             "CUARTOS_DE_FINAL", "SEMIFINALES", "TERCER_LUGAR", "FINAL"
     };
 
+    /** Etiqueta donde se muestra el estado del proceso de actualización. */
     private TextView lblEstado;
 
+    /**
+     * Inicializa la pantalla construyendo dinámicamente los banners informativos,
+     * la tarjeta principal con las reglas de puntuación y el botón de acción, y
+     * la barra inferior para volver al menú.
+     *
+     * @param savedInstanceState Estado previamente guardado de la actividad, si existe.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +90,6 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         LinearLayout pantalla = new LinearLayout(this);
         pantalla.setOrientation(LinearLayout.VERTICAL);
         pantalla.setBackgroundColor(GRIS_FONDO);
-
-
 
         ScrollView scroll = new ScrollView(this);
         scroll.setLayoutParams(new LinearLayout.LayoutParams(
@@ -81,8 +116,11 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
     //  CONSTRUCCIÓN DE LA UI
     // ============================================================
 
-
-
+    /**
+     * Crea el banner informativo superior que explica qué hace esta opción.
+     *
+     * @return El banner ({@link LinearLayout}) construido.
+     */
     private LinearLayout crearBannerInfo() {
         LinearLayout banner = new LinearLayout(this);
         banner.setOrientation(LinearLayout.HORIZONTAL);
@@ -113,6 +151,12 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         return banner;
     }
 
+    /**
+     * Crea la tarjeta principal con el título, la descripción, las reglas de
+     * puntuación y el botón que dispara la actualización de puntajes.
+     *
+     * @return La tarjeta ({@link LinearLayout}) construida.
+     */
     private LinearLayout crearTarjetaPrincipal() {
         LinearLayout tarjeta = new LinearLayout(this);
         tarjeta.setOrientation(LinearLayout.VERTICAL);
@@ -205,6 +249,15 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         return tarjeta;
     }
 
+    /**
+     * Crea una fila de regla de puntuación, con una etiqueta de puntos y su
+     * descripción.
+     *
+     * @param puntos Texto de los puntos (por ejemplo, "3 puntos").
+     * @param descripcion Descripción de la regla.
+     * @param colorPill Color de fondo de la etiqueta de puntos.
+     * @return La fila ({@link LinearLayout}) construida.
+     */
     private LinearLayout filaRegla(String puntos, String descripcion, int colorPill) {
         LinearLayout fila = new LinearLayout(this);
         fila.setOrientation(LinearLayout.HORIZONTAL);
@@ -238,6 +291,12 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         return fila;
     }
 
+    /**
+     * Crea el banner inferior que advierte que los puntajes se reinician a cero
+     * antes de recalcularse.
+     *
+     * @return El banner ({@link LinearLayout}) construido.
+     */
     private LinearLayout crearBannerReinicio() {
         LinearLayout banner = new LinearLayout(this);
         banner.setOrientation(LinearLayout.HORIZONTAL);
@@ -263,6 +322,11 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         return banner;
     }
 
+    /**
+     * Crea la barra inferior con el botón para volver al menú principal.
+     *
+     * @return La barra ({@link LinearLayout}) construida.
+     */
     private LinearLayout crearBarraInferior() {
         LinearLayout barra = new LinearLayout(this);
         barra.setOrientation(LinearLayout.HORIZONTAL);
@@ -289,6 +353,12 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         return barra;
     }
 
+    /**
+     * Crea un espacio vertical vacío.
+     *
+     * @param alturaDp Altura del espacio en dp.
+     * @return La vista ({@link View}) que ocupa el espacio.
+     */
     private View espacio(int alturaDp) {
         View v = new View(this);
         v.setLayoutParams(new LinearLayout.LayoutParams(
@@ -300,10 +370,24 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
     //  UTILIDADES DE ESTILO
     // ============================================================
 
+    /**
+     * Convierte una medida en dp a píxeles según la densidad de la pantalla.
+     *
+     * @param valor Medida en dp.
+     * @return Medida equivalente en píxeles.
+     */
     private int dp(int valor) {
         return (int) (valor * getResources().getDisplayMetrics().density);
     }
 
+    /**
+     * Crea un fondo con esquinas redondeadas y borde opcional.
+     *
+     * @param color Color de relleno.
+     * @param radio Radio de las esquinas en dp.
+     * @param colorBorde Color del borde, o 0 para no dibujar borde.
+     * @return El fondo ({@link GradientDrawable}) configurado.
+     */
     private GradientDrawable fondoRedondeado(int color, int radio, int colorBorde) {
         GradientDrawable d = new GradientDrawable();
         d.setColor(color);
@@ -316,6 +400,12 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
     //  ACCIONES
     // ============================================================
 
+    /**
+     * Maneja el evento del botón de actualizar puntajes. Recalcula los puntajes
+     * y muestra un mensaje de éxito o de error.
+     *
+     * @param v Vista que originó el evento.
+     */
     public void actualizarPuntajes(View v) {
         try {
             int total = recalcularPuntajes();
@@ -326,14 +416,29 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Regresa al menú principal del administrador.
+     *
+     * @param v Vista que originó el evento.
+     */
     public void volver(View v) {
         finish();
     }
 
     // ============================================================
-    //  LÓGICA DE NEGOCIO (sin cambios respecto a la versión anterior)
+    //  LÓGICA DE NEGOCIO
     // ============================================================
 
+    /**
+     * Recorre los pronósticos de todos los participantes y todas las fases,
+     * calcula los puntos de cada pronóstico según los resultados oficiales de
+     * los partidos finalizados y actualiza el puntaje acumulado de cada
+     * participante, guardándolo en participantes.txt. Los puntajes se reinician
+     * implícitamente al recalcularse desde cero.
+     *
+     * @return Cantidad de participantes procesados.
+     * @throws IOException Si ocurre un error al leer o escribir los archivos.
+     */
     private int recalcularPuntajes() throws IOException {
         Map<Integer, Partido> partidosPorId = cargarPartidos();
         Map<Integer, Resultado> resultadosPorId = cargarResultados();
@@ -386,6 +491,18 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         return puntajePorParticipante.size();
     }
 
+    /**
+     * Calcula los puntos obtenidos por un pronóstico comparándolo con el
+     * resultado oficial, según las reglas del torneo: 3 por marcador exacto,
+     * 2 por acertar ganador y diferencia o empate, 1 por acertar solo el
+     * ganador, y 0 en cualquier otro caso.
+     *
+     * @param predGoles1 Goles pronosticados para la selección 1.
+     * @param predGoles2 Goles pronosticados para la selección 2.
+     * @param realGoles1 Goles oficiales de la selección 1.
+     * @param realGoles2 Goles oficiales de la selección 2.
+     * @return Puntos obtenidos (0, 1, 2 o 3).
+     */
     private int calcularPuntos(int predGoles1, int predGoles2, int realGoles1, int realGoles2) {
         if (predGoles1 == realGoles1 && predGoles2 == realGoles2) {
             return 3;
@@ -419,6 +536,12 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         return 1;
     }
 
+    /**
+     * Carga todos los partidos desde partidos.txt, indexados por su identificador.
+     *
+     * @return Mapa de partidos por id de partido.
+     * @throws IOException Si ocurre un error al leer el archivo.
+     */
     private Map<Integer, Partido> cargarPartidos() throws IOException {
         Map<Integer, Partido> mapa = new HashMap<>();
         try (BufferedReader reader = GestorArchivos.leerDeInterno(this, "partidos.txt")) {
@@ -435,6 +558,13 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         return mapa;
     }
 
+    /**
+     * Carga los resultados oficiales desde resultados.txt, indexados por el
+     * identificador del partido.
+     *
+     * @return Mapa de resultados por id de partido.
+     * @throws IOException Si ocurre un error al leer el archivo.
+     */
     private Map<Integer, Resultado> cargarResultados() throws IOException {
         Map<Integer, Resultado> mapa = new HashMap<>();
         try (BufferedReader reader = GestorArchivos.leerDeInterno(this, "resultados.txt")) {
@@ -451,6 +581,12 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         return mapa;
     }
 
+    /**
+     * Carga los identificadores de todos los participantes desde participantes.txt.
+     *
+     * @return Lista de identificadores de participantes.
+     * @throws IOException Si ocurre un error al leer el archivo.
+     */
     private List<String> cargarIdsParticipantes() throws IOException {
         List<String> ids = new ArrayList<>();
         try (BufferedReader reader = GestorArchivos.leerDeInterno(this, "participantes.txt")) {
@@ -465,6 +601,12 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         return ids;
     }
 
+    /**
+     * Lee la lista de pronósticos serializados de un archivo.
+     *
+     * @param nombreArchivo Nombre del archivo de pronósticos.
+     * @return Lista de pronósticos, o {@code null} si el archivo no existe o falla la lectura.
+     */
     @SuppressWarnings("unchecked")
     private ArrayList<Pronostico> leerPronosticos(String nombreArchivo) {
         try {
@@ -475,6 +617,12 @@ public class ActualizarPuntajesActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Guarda los puntajes acumulados de los participantes en participantes.txt.
+     *
+     * @param puntajePorParticipante Mapa de puntaje acumulado por id de participante.
+     * @throws IOException Si ocurre un error al escribir el archivo.
+     */
     private void guardarParticipantes(Map<String, Integer> puntajePorParticipante) throws IOException {
         List<String> lineas = new ArrayList<>();
         lineas.add("idUsuario;puntajeAcumulado");

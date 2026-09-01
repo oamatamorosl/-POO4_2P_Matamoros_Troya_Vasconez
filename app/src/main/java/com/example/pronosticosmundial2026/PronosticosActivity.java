@@ -29,26 +29,52 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Pantalla donde el participante registra sus pronósticos para los partidos de
+ * una fase seleccionada. Permite ingresar los goles de cada selección mientras
+ * el partido esté ABIERTO y almacena los pronósticos mediante serialización.
+ *
+ * @author Equipo POO
+ * @version 1.0
+ */
 public class PronosticosActivity extends AppCompatActivity {
 
+    /** Selector de la fase del torneo. */
     private Spinner spFase;
+
+    /** Contenedor donde se agregan dinámicamente las tarjetas de los partidos. */
     private LinearLayout partidosLayout;
+
+    /** Identificador del participante autenticado. */
     private String idUsuario;
 
+    /** Color azul usado en la interfaz. */
     private static final int AZUL = 0xFF1B2A4A;
+
+    /** Color gris usado en la interfaz. */
     private static final int GRIS = 0xFF6B7280;
+
+    /** Color verde usado en la interfaz. */
     private static final int VERDE = 0xFF2E7D32;
 
+    /** Nombres internos de las fases, tal como aparecen en partidos.txt. */
     private final String[] FASES = {
             "FASE_DE_GRUPOS", "DIECISEISAVOS_DE_FINAL", "OCTAVOS_DE_FINAL",
             "CUARTOS_DE_FINAL", "SEMIFINALES", "TERCER_LUGAR", "FINAL"
     };
 
+    /** Nombres visibles de las fases, mostrados al usuario en el Spinner. */
     private final String[] FASES_TEXTO = {
             "Fase de grupos", "Dieciseisavos de final", "Octavos de final",
             "Cuartos de final", "Semifinales", "Tercer lugar", "Final"
     };
 
+    /**
+     * Inicializa la pantalla, configura el Spinner de fases y su listener para
+     * mostrar los partidos correspondientes, y enlaza el botón de volver.
+     *
+     * @param savedInstanceState Estado previamente guardado de la actividad, si existe.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,10 +109,24 @@ public class PronosticosActivity extends AppCompatActivity {
         btnVolver.setOnClickListener(v -> finish());
     }
 
+    /**
+     * Convierte una medida en dp a píxeles según la densidad de la pantalla.
+     *
+     * @param valor Medida en dp.
+     * @return Medida equivalente en píxeles.
+     */
     private int dp(int valor) {
         return (int) (valor * getResources().getDisplayMetrics().density);
     }
 
+    /**
+     * Crea un fondo con esquinas redondeadas y borde opcional.
+     *
+     * @param color Color de relleno.
+     * @param radio Radio de las esquinas en dp.
+     * @param colorBorde Color del borde, o 0 para no dibujar borde.
+     * @return El fondo ({@link GradientDrawable}) configurado.
+     */
     private GradientDrawable fondoRedondeado(int color, int radio, int colorBorde) {
         GradientDrawable d = new GradientDrawable();
         d.setColor(color);
@@ -95,6 +135,13 @@ public class PronosticosActivity extends AppCompatActivity {
         return d;
     }
 
+    /**
+     * Carga los partidos que pertenecen a una fase determinada.
+     *
+     * @param fase Nombre interno de la fase.
+     * @return Lista de partidos de esa fase.
+     * @throws IOException Si ocurre un error al leer el archivo de partidos.
+     */
     private List<Partido> cargarPartidos(String fase) throws IOException {
         List<Partido> lista = new ArrayList<>();
         try (BufferedReader reader = GestorArchivos.leerDeInterno(this, "partidos.txt")) {
@@ -110,6 +157,12 @@ public class PronosticosActivity extends AppCompatActivity {
         return lista;
     }
 
+    /**
+     * Carga los pronósticos ya guardados por el participante para una fase.
+     *
+     * @param fase Nombre interno de la fase.
+     * @return Lista de pronósticos guardados, o una lista vacía si no existen.
+     */
     private ArrayList<Pronostico> cargarPronosticos(String fase) {
         try {
             ArrayList<Pronostico> lista = (ArrayList<Pronostico>)
@@ -120,6 +173,14 @@ public class PronosticosActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Construye y muestra dinámicamente una tarjeta por cada partido de la fase,
+     * habilitando los campos de goles solo si el partido está ABIERTO y
+     * precargando el pronóstico previamente guardado si existe.
+     *
+     * @param partidos Lista de partidos a mostrar.
+     * @param fase Nombre interno de la fase.
+     */
     private void mostrarPartidos(List<Partido> partidos, String fase) {
         partidosLayout.removeAllViews();
         ArrayList<Pronostico> guardados = cargarPronosticos(fase);
@@ -295,6 +356,20 @@ public class PronosticosActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Valida y guarda el pronóstico de un participante para un partido. Verifica
+     * que el partido esté ABIERTO, que los goles no estén vacíos y que no sean
+     * negativos. Si ya existía un pronóstico para ese partido, lo reemplaza en
+     * lugar de crear uno nuevo, y guarda la lista mediante serialización.
+     *
+     * @param p Partido pronosticado.
+     * @param g1 Goles ingresados para la selección 1, como texto.
+     * @param g2 Goles ingresados para la selección 2, como texto.
+     * @throws DatosIncompletosException Si algún dato falta o es inválido.
+     * @throws PronosticoFueraDeTiempoException Si el partido no está ABIERTO.
+     * @throws IOException Si ocurre un error al leer o escribir el archivo.
+     * @throws ClassNotFoundException Si falla la deserialización de los pronósticos.
+     */
     private void guardarPronostico(Partido p, String g1, String g2)
             throws DatosIncompletosException, PronosticoFueraDeTiempoException,
             IOException, ClassNotFoundException {
