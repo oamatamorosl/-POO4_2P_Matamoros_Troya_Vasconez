@@ -31,7 +31,7 @@ import java.util.Map;
  * (si está disponible) y los puntos obtenidos, o un mensaje de pendiente cuando
  * el resultado o el puntaje aún no existen.
  *
- * @author Equipo POO
+ * @author Aidan_Troya
  * @version 1.0
  */
 public class MisPronosticosActivity extends AppCompatActivity {

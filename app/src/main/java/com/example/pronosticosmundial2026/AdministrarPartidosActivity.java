@@ -36,7 +36,7 @@ import java.util.List;
  * (ABIERTO, CERRADO, FINALIZADO) y su persistencia en archivos. Toda la
  * interfaz se construye de forma dinámica por código.
  *
- * @author Equipo POO
+ * @author Oscar_Matamoros
  * @version 1.0
  */
 public class AdministrarPartidosActivity extends AppCompatActivity {

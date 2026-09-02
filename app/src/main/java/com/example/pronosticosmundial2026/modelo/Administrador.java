@@ -5,7 +5,7 @@ package com.example.pronosticosmundial2026.modelo;
  * autorizado para gestionar partidos, registrar resultados y actualizar
  * los puntajes de los participantes.
  *
- * @author Equipo POO
+ * @author Oscar_Matamoros
  * @version 1.0
  */
 public class Administrador extends Usuario {

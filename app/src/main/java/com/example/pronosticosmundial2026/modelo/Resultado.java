@@ -7,7 +7,7 @@ import java.io.Serializable;
  * de cada selección. Implementa {@link Serializable} para poder almacenarse
  * cuando sea necesario.
  *
- * @author Equipo POO
+ * @author Sebastian_Vasconez
  * @version 1.0
  */
 public class Resultado implements Serializable {

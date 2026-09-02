@@ -5,7 +5,7 @@ package com.example.pronosticosmundial2026.modelo;
  * registra pronósticos y acumula puntaje. Implementa {@link Comparable} para
  * permitir el ordenamiento automático en la tabla de posiciones.
  *
- * @author Equipo POO
+ * @author Oscar_Matamoros
  * @version 1.0
  */
 public class Participante extends Usuario implements Comparable<Participante> {

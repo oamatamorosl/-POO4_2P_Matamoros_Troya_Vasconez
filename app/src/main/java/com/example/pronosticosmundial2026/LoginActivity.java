@@ -23,7 +23,7 @@ import java.util.List;
  * ingresadas contra el archivo usuarios.txt y, según el tipo de usuario
  * autenticado, redirige al menú de participante o de administrador.
  *
- * @author Equipo POO
+ * @author Aidan_Troya
  * @version 1.0
  */
 public class LoginActivity extends AppCompatActivity {

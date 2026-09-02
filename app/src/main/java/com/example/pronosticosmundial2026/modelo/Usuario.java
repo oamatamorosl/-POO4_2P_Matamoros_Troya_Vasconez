@@ -8,7 +8,7 @@ import java.io.Serializable;
  * {@link Administrador}. Implementa {@link Serializable} para permitir
  * que los objetos que la referencian puedan almacenarse mediante serialización.
  *
- * @author Equipo POO
+ * @author Oscar_Matamoros
  * @version 1.0
  */
 public abstract class Usuario implements Serializable {

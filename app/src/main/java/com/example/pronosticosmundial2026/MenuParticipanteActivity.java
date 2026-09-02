@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
  * autenticado y ofrece las opciones de tabla de posiciones, pronósticos,
  * mis pronósticos y salir de la aplicación.
  *
- * @author Equipo POO
+ * @author Aidan_Troya
  * @version 1.0
  */
 public class MenuParticipanteActivity extends AppCompatActivity {

@@ -4,7 +4,7 @@ package com.example.pronosticosmundial2026.excepciones;
  * Excepción que se lanza cuando faltan datos o son inválidos al registrar
  * un pronóstico o un resultado (por ejemplo, campos vacíos o goles negativos).
  *
- * @author Equipo POO
+ * @author Aidan_Troya
  * @version 1.0
  */
 public class DatosIncompletosException extends RuntimeException {

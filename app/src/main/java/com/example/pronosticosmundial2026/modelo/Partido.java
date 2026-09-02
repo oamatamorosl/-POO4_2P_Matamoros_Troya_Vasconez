@@ -7,7 +7,7 @@ import java.io.Serializable;
  * ({@code ABIERTO}, {@code CERRADO} o {@code FINALIZADO}). Implementa
  * {@link Serializable} para poder almacenarse cuando sea necesario.
  *
- * @author Equipo POO
+ * @author Sebastian_Vasconez
  * @version 1.0
  */
 public class Partido implements Serializable {

@@ -24,7 +24,7 @@ import java.util.Map;
  * ordenada de mayor a menor puntaje (y alfabéticamente en caso de empate).
  * Combina los datos de usuarios.txt y participantes.txt para construir la tabla.
  *
- * @author Equipo POO
+ * @author Sebastian_Vasconez
  * @version 1.0
  */
 public class TablaPosicionesActivity extends AppCompatActivity {

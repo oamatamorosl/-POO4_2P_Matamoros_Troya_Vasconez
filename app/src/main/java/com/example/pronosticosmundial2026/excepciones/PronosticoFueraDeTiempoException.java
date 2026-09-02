@@ -5,7 +5,7 @@ package com.example.pronosticosmundial2026.excepciones;
  * o modificar un pronóstico de un partido cuyo período ya finalizó (es decir,
  * el partido está en estado CERRADO o FINALIZADO).
  *
- * @author Equipo POO
+ * @author Sebastian_Vasconez
  * @version 1.0
  */
 public class PronosticoFueraDeTiempoException extends Exception {

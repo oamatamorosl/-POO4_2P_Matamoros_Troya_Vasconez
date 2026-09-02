@@ -4,7 +4,7 @@ package com.example.pronosticosmundial2026.excepciones;
  * Excepción verificada que se lanza cuando las credenciales ingresadas en el
  * inicio de sesión no son válidas (usuario o contraseña incorrectos).
  *
- * @author Equipo POO
+ * @author Oscar_Matamoros
  * @version 1.0
  */
 public class CredencialesInvalidasException extends Exception {

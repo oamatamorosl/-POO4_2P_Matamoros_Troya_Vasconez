@@ -9,7 +9,7 @@ import java.util.List;
  * archivos de la aplicación, tanto de texto (assets y almacenamiento interno)
  * como de objetos serializados.
  *
- * @author Equipo POO
+ * @author Aidan_Troya
  * @version 1.0
  */
 public class GestorArchivos {

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * obtenidos. Implementa {@link Serializable} porque los pronósticos se
  * almacenan mediante serialización de objetos.
  *
- * @author Equipo POO
+ * @author Sebastian_Vasconez
  * @version 1.0
  */
 public class Pronostico implements Serializable {

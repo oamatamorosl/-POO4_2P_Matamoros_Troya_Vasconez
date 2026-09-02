@@ -32,7 +32,7 @@ import java.util.Map;
  * y actualiza el puntaje acumulado de cada participante en participantes.txt.
  * Toda la interfaz se construye de forma dinámica por código.
  *
- * @author Equipo POO
+ * @author Aidan_Troya
  * @version 1.0
  */
 public class ActualizarPuntajesActivity extends AppCompatActivity {

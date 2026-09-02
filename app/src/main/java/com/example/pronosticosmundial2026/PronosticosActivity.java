@@ -34,7 +34,7 @@ import java.util.List;
  * una fase seleccionada. Permite ingresar los goles de cada selección mientras
  * el partido esté ABIERTO y almacena los pronósticos mediante serialización.
  *
- * @author Equipo POO
+ * @author Sebastian_Vasconez
  * @version 1.0
  */
 public class PronosticosActivity extends AppCompatActivity {
